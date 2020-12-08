@@ -1,0 +1,39 @@
+.detail {
+  /* width: 500px; */
+}
+@media screen and (min-width:800px){
+  .detail {
+    width: auto;
+  }
+}
+.detailImg {
+  display: block;
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+.addInfoList{
+  display:flex;
+}
+.addInfoListItem{
+  position: relative;
+  padding: 10px 15px;
+  width: 150px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid #AEB6BF;
+  color: #2E4053;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.addInfoListItem:active{
+  top: 0.1em;
+}
+.addInfoListItem:not(:last-child){
+  margin-right: 15px;
+}
+.addInfoListLink{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}

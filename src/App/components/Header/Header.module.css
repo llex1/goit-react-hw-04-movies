@@ -1,0 +1,18 @@
+.header {
+  /* background-color: #D6DBDF; */
+  background-color: #212F3C;
+  color: #EBEDEF;
+}
+.navList {
+  max-width: 1020px;
+  margin: 0 auto;
+  display: flex;
+  padding: 20px 15px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+.navList>li:not(:last-child){
+  margin-right: 20px;
+}
