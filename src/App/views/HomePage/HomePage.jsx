@@ -9,7 +9,7 @@ class HomePage extends Component {
   state = {
     results: [],
   };
-
+  
   async componentDidMount() {
     const { results } = await postman();
     this.setState((state) => {

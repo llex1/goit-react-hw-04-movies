@@ -1,22 +1,22 @@
-import React, { Component, Fragment} from "react";
-// import React, { Component, Fragment, lazy, Suspense} from "react";
+// import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, Suspense } from "react";
+// import { Route } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 
 //jsx components
 import Header from "./components/Header";
 
 //views
-import HomePage from './views/HomePage';
-import MoviesPage from './views/MoviesPage';
-import MovieDetailsPage from './views/MovieDetailsPage';
-import _404 from "./views/_404";
+// import HomePage from "./views/HomePage";
+// import MoviesPage from "./views/MoviesPage";
+// import MovieDetailsPage from "./views/MovieDetailsPage";
+// import _404 from "./views/_404";
 
 //data
-import routes from "./data/routes";
+// import routes from "./data/routes";
 
 //ASYNC views
-// const AsyncMoviesPage = lazy(()=>{import('./views/MoviesPage')});
-// const AsyncMovieDetailsPage = lazy(()=>{import('./views/MovieDetailsPage')});
+import routes_ from "./data/routes_";
 
 class App extends Component {
   state = {};
@@ -26,23 +26,34 @@ class App extends Component {
         <Header />
 
         <div className="container">
+          <Suspense fallback={<h2>Loading...</h2>}>
             <Switch>
-              <Route path={routes.home} exact component={HomePage} />
-              <Route path={routes.movies} exact component={MoviesPage} />
-              <Route
-                path={`${routes.movies}${routes.movieId}`} 
-                component={MovieDetailsPage}
-              />
-              {/* <Suspense fallback={<h2>Loading...</h2>}>
-                <Route path={routes.movies} exact component={AsyncMoviesPage} />
+            {routes_.map((el, i) => {
+              return (
                 <Route
-                  path={`${routes.movies}${routes.movieId}`} 
-                  component={AsyncMovieDetailsPage}
+                key={i}
+                path={el.path}
+                exact={el.exact}
+                component={el.component}
                 />
-              </Suspense> */}
-              <Route component={_404} />
+                );
+              })}
             </Switch>
+          </Suspense>
         </div>
+
+        {/* <div className="container">
+          <Switch>
+            <Route path={routes.home} exact component={HomePage} />
+            <Route path={routes.movies} exact component={MoviesPage} />
+            <Route
+              path={`${routes.movies}${routes.movieId}`}
+              component={MovieDetailsPage}
+            />
+
+            <Route component={_404} />
+          </Switch>
+        </div> */}
 
         {/* <Footer/> */}
       </Fragment>
