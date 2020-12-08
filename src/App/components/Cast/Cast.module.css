@@ -1,0 +1,16 @@
+.castList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.castItem{
+  border: 1px solid #AEB6BF;
+  border-radius: 4px;
+  text-align: center;
+}
+.castItem:not(:last-child){
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+.castImg{
+  width: 200px;
+}

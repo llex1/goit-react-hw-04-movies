@@ -6,6 +6,12 @@
     width: auto;
   }
 }
+.title{
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.30;
+  letter-spacing: 0.03em;
+}
 .detailImg {
   display: block;
   width: 500px;
@@ -32,4 +38,7 @@
 }
 .addInfoListItem:active{
   top: 0.1em;
+}
+.accent{
+  font-weight: 700;
 }

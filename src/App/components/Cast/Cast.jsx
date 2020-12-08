@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import postman from "../../services/postman";
 import api from "../../data/api";
 
+import styles from './Cast.module.css';
+
 class Cast extends Component {
   state = {
     results: [],
@@ -21,12 +23,12 @@ class Cast extends Component {
 
   render() {
     return (
-      <ul>
+      <ul className={styles.castList}>
         {this.state.results.length ? (
           this.state.results.slice(0, 4).map((el) => {
             return (
-              <li key={el.id}>
-                <img src={`${api.URI.img}${el.profile_path}`} alt={el.name} />
+              <li className={styles.castItem} key={el.id}>
+                <img className={styles.castImg} src={`${api.URI.img}${el.profile_path}`} alt={el.name} />
                 <p>{el.name}</p>
                 <p>{el.character}</p>
               </li>

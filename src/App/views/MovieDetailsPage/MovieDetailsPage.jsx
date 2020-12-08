@@ -68,16 +68,16 @@ class MovieDetailsPage extends Component {
             className={styles.detailImg}
           />
           <div>
-            <p>
+            <p className={styles.title}>
               {this.state.title} (
               {this.state.year && this.state.year.slice(0, 4)})
             </p>
-            <p> User Score: {this.state.raiting}</p>
+            <p className={styles.accent}> User Score: {this.state.raiting}</p>
 
-            <p>Overview</p>
+            <p className={styles.accent}>Overview</p>
             <p>{this.state.overview}</p>
 
-            <p>Genres</p>
+            <p className={styles.accent}>Genres</p>
             <p>
               {this.state.genres &&
                 this.state.genres.map((el) => {
@@ -87,7 +87,7 @@ class MovieDetailsPage extends Component {
           </div>
         </div>
         <div>
-          <p>Additional Information</p>
+          <hr/>
           <ul className={styles.addInfoList}>
             <li>
               <Link className={styles.addInfoListItem}
