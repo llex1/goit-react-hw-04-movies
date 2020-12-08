@@ -15,7 +15,11 @@
 .addInfoList{
   display:flex;
 }
+.addInfoList>li:not(:last-child){
+  margin-right: 15px;
+}
 .addInfoListItem{
+  display: inline-block;
   position: relative;
   padding: 10px 15px;
   width: 150px;
@@ -28,12 +32,4 @@
 }
 .addInfoListItem:active{
   top: 0.1em;
-}
-.addInfoListItem:not(:last-child){
-  margin-right: 15px;
-}
-.addInfoListLink{
-  display: inline-block;
-  width: 100%;
-  height: 100%;
 }

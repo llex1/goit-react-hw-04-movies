@@ -89,15 +89,15 @@ class MovieDetailsPage extends Component {
         <div>
           <p>Additional Information</p>
           <ul className={styles.addInfoList}>
-            <li className={styles.addInfoListItem}>
-              <Link className={styles.addInfoListLink}
+            <li>
+              <Link className={styles.addInfoListItem}
                 to={`${routes.movies}/${this.state.id}${this.state.cast_path}`}
               >
                 Cast
               </Link>
             </li>
-            <li className={styles.addInfoListItem}>
-              <Link className={styles.addInfoListLink}
+            <li>
+              <Link className={styles.addInfoListItem}
                 to={`${routes.movies}/${this.state.id}${this.state.reviews_path}`}
               >
                 Review

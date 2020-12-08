@@ -27,6 +27,17 @@ class MoviesPage extends Component {
     });
   };
 
+  createIcon(string) {
+    let result = "";
+    let strSplit = string.split(" ");
+    if(strSplit.length > 1){
+      result = strSplit[0][0] + strSplit[1][0];
+    } else {
+      result = strSplit[0][0]
+    }
+    return result.toUpperCase();
+  }
+
   async componentDidMount() {
     if (this.props.location.search) {
       const query = new URLSearchParams(this.props.location.search).get(
@@ -41,24 +52,28 @@ class MoviesPage extends Component {
           results: [...result.results],
         };
       });
-      console.log(this.state.results);
     }
   }
 
   async componentDidUpdate(prevProps) {
-    if (prevProps.location.search !== this.props.location.search) {
+    if (
+      this.props.location.search &&
+      prevProps.location.search !== this.props.location.search
+    ) {
       const query = new URLSearchParams(this.props.location.search).get(
         "query"
       );
-      const result = await postman({
-        marker: "query",
-        query: query,
-      });
-      this.setState((state) => {
-        return {
-          results: [...result.results],
-        };
-      });
+      if (query) {
+        const result = await postman({
+          marker: "query",
+          query: query,
+        });
+        this.setState((state) => {
+          return {
+            results: [...result.results],
+          };
+        });
+      }
     }
   }
 
@@ -84,12 +99,10 @@ class MoviesPage extends Component {
         <ul>
           {this.state.results.map((el) => {
             return (
-              <li key={el.id}>
-                <Link to={`${routes.movies}/${el.id}`}>
-                  <p>
-                    <span>A</span>
-                    {el.title}
-                  </p>
+              <li className={styles.listItem} key={el.id} >
+                <Link className={styles.listLink} to={`${routes.movies}/${el.id}`}>
+                  <p className={styles.icon}><span>{this.createIcon(el.title)}</span></p>
+                  <p className={styles.title}>{el.title}</p>
                 </Link>
               </li>
             );

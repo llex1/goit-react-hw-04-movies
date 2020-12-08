@@ -24,3 +24,34 @@
 .searchFormButton:active{
   top: 0.1em;  
 }
+.listItem{
+  padding: 0 15px;
+  transition: 250ms linear;
+}
+.listItem:hover{
+  transform: scale(1.01);
+  box-shadow: 0 4px 6px #AEB6BF;
+}
+.listLink{
+  display: flex;
+  align-items: center;
+}
+.icon {
+  display: flex;
+  margin-right: 15px;
+  justify-content: center;
+  align-items: center;
+  min-width: 50px;
+  height: 50px;
+  border: 1px solid #2E4053;
+  background-color: #2E4053;
+  color: #D6DBDF;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: center;
+}
+.title{
+  display: inline-block;
+  font-size: 26px;
+  margin: 0;
+}
