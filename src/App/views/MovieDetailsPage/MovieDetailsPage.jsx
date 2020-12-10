@@ -12,9 +12,9 @@ import styles from "./MovieDetailsPage.module.css";
 class MovieDetailsPage extends Component {
   state = {
     isCast: false,
-    cast_path: "/cast",
+    cast_path: "cast",
     isReviews: false,
-    reviews_path: "/reviews",
+    reviews_path: "reviews",
   };
 
   async componentDidMount() {
@@ -34,24 +34,18 @@ class MovieDetailsPage extends Component {
   }
 
   componentDidUpdate() {
-    if (
-      !this.state.isCast &&
-      this.props.location.pathname ===
-        `${this.props.match.url}${this.state.cast_path}`
-    ) {
+    const value = this.props.location.pathname.split("/");
+    if (value.includes(this.state.cast_path) && !this.state.isCast) {
       this.setState((state) => {
         return {
           isCast: true,
+          isReviews: false,
         };
       });
-    }
-    if (
-      !this.state.isReviews &&
-      this.props.location.pathname ===
-        `${this.props.match.url}${this.state.reviews_path}`
-    ) {
+    } else if (value.includes(this.state.reviews_path) && !this.state.isReviews) {
       this.setState((state) => {
         return {
+          isCast: false,
           isReviews: true,
         };
       });
@@ -87,18 +81,20 @@ class MovieDetailsPage extends Component {
           </div>
         </div>
         <div>
-          <hr/>
+          <hr />
           <ul className={styles.addInfoList}>
             <li>
-              <Link className={styles.addInfoListItem}
-                to={`${routes.movies}/${this.state.id}${this.state.cast_path}`}
+              <Link
+                className={styles.addInfoListItem}
+                to={`${routes.movies}/${this.state.id}/${this.state.cast_path}`}
               >
                 Cast
               </Link>
             </li>
             <li>
-              <Link className={styles.addInfoListItem}
-                to={`${routes.movies}/${this.state.id}${this.state.reviews_path}`}
+              <Link
+                className={styles.addInfoListItem}
+                to={`${routes.movies}/${this.state.id}/${this.state.reviews_path}`}
               >
                 Review
               </Link>
